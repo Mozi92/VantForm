@@ -39,7 +39,7 @@ bld/
 # Visual Studio 2017 auto generated files
 Generated\ Files/
 
-# MSTest test Results
+# MSTest jsSource Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
@@ -348,3 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+dist
+coverage
+.nyc_output

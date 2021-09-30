@@ -1,0 +1,71 @@
+{
+  "name": "vant-form",
+  "version": "1.0.9",
+  "description": "A collection of data handlers",
+  "main": "./dist/main.js",
+  "scripts": {
+    "serve": "gulp serve",
+    "build": "gulp build",
+    "publish": "npm publish",
+    "test": "cross-env TS_NODE_PROJECT='./tsconfig.test.json' mocha test/**/**.test.ts",
+    "cover": "nyc --reporter=html npm run test"
+  },
+  "mocha": {
+    "require": [
+      "ts-node/register",
+      "tsconfig-paths/register"
+    ],
+    "ui": "bdd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mozi92/VantForm.git"
+  },
+  "keywords": [
+    "date",
+    "substr",
+    "subArray",
+    "getIndexFromArray"
+  ],
+  "author": "mozi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mozi92/VantForm/issues"
+  },
+  "homepage": "https://github.com/Mozi92/VantForm#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/jquery": "^3.5.6",
+    "@types/lodash": "^4.14.172",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.6.2",
+    "@types/sinon": "^10.0.2",
+    "browserify": "^17.0.0",
+    "chai": "^4.3.4",
+    "cross-env": "^7.0.3",
+    "gulp": "^4.0.2",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "jQuery": "^1.7.4",
+    "lodash": "^4.17.21",
+    "merge2": "^1.4.1",
+    "mocha": "^9.1.0",
+    "moment": "^2.29.1",
+    "nyc": "^15.1.0",
+    "sinon": "^11.1.2",
+    "ts-node": "^10.2.1",
+    "tsconfig-paths": "^3.10.1",
+    "tsify": "^5.0.4",
+    "typescript": "^4.3.5",
+    "vant": "^2.12.29",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "vue": "^2.6.14",
+    "watchify": "^4.0.0"
+  },
+  "dependencies": {
+    "gulp-clean": "^0.4.0"
+  }
+}

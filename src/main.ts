@@ -1,0 +1,1 @@
+export {createForm} from "./vant-form/index"
