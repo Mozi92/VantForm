@@ -1,6 +1,0 @@
-# 排除 src
-src/
-coverage/
-.nyc_output/
-examples/
-jsSource/
