@@ -1,8 +1,11 @@
 {
   "files": [
-    "src/views/index.ts"
+    "src/index.ts"
   ],
   "compilerOptions": {
+    "jsx": "preserve",
+    "noImplicitAny": false,
+    "noImplicitThis": false,
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Projects */

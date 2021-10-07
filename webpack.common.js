@@ -1,32 +1,30 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const {WebpackManifestPlugin} = require('webpack-manifest-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+// const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    mode: "development",
     entry: {
-        index: './src/views/index.ts',
+        index: './src/index.ts',
     },
     output: {
         filename: '[name].bundle.[hash].js',
-        path: path.resolve(__dirname, 'dist/[name]'),
-        clean: true
+        path: path.resolve(process.cwd(), 'dist')
     },
     plugins: [
-        new CopyWebpackPlugin({
-            patterns: [
-                {from: "public/resources", to: "resources"},
-            ]
-        }),
+        new CleanWebpackPlugin(),
+        // new CopyWebpackPlugin({
+        //     patterns: [
+        //         {from: "public/resources", to: "resources"},
+        //     ]
+        // }),
         new HtmlWebpackPlugin({
             title: 'vant_form',
             template: "./public/index.html",
             filename: 'index.html'
         }),
-        new WebpackManifestPlugin({}),
-        new BundleAnalyzerPlugin()
+        new WebpackManifestPlugin({})
     ],
     module: {
         rules: [
@@ -52,11 +50,5 @@ module.exports = {
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js']
-    },
-    devServer: {
-        watchFiles: path.join(__dirname, "dist"),
-        compress: true,
-        port: 8000,
-        static: path.join(__dirname, "dist"),
     }
 };

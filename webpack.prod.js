@@ -3,6 +3,7 @@ const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
     mode: 'production',
@@ -17,14 +18,14 @@ module.exports = merge(common, {
     optimization: {
         minimize: true,
         minimizer: [
-            new TerserPlugin({ // only mangle the RIA chunk
-                // include: [/ria-modules/],
+            new TerserPlugin({
                 terserOptions: {
                     mangle: true,
                     compress: true
                 }
             }),
             new CssMinimizerPlugin(),
+            // new BundleAnalyzerPlugin()
         ],
         splitChunks: {
             chunks: 'async',
@@ -35,14 +36,7 @@ module.exports = merge(common, {
             maxAsyncRequests: 30,
             maxInitialRequests: 30,
             enforceSizeThreshold: 50000,
-            cacheGroups: {
-                "ria-modules": { // split LuciadRIA into its own chunk
-                    test: /@luciad.(ria|ria-geometry|ria-milsym)/,
-                    name: 'ria-modules',
-                    enforce: true,
-                    chunks: 'all'
-                },
-            },
+            cacheGroups: {},
         },
-    },
+    }
 });
